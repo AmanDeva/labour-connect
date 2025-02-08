@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../firebase';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { toast } from 'react-hot-toast';
-import { UserPlus, Mail, Lock, CheckCircle2, Briefcase, Clock, MapPin, IndianRupee, Shield, Users } from 'lucide-react';
+import { UserPlus, Mail, Lock, CheckCircle2, Briefcase, Clock, MapPin, IndianRupee, Shield, Users, Building2 } from 'lucide-react';
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -84,7 +84,8 @@ const SignUp = () => {
           </div>
 
           <div className="bg-white/10 rounded-xl p-6">
-            <h3 className="font-display font-semibold text-lg mb-4">
+            <h3 className="font-display font-semibold text-lg mb-4 flex items-center">
+              <Building2 className="h-5 w-5 mr-2" />
               Available Job Categories
             </h3>
             <div className="flex flex-wrap gap-2">
@@ -99,30 +100,22 @@ const SignUp = () => {
 
         <div className="border-t border-white/10 pt-8">
           <div className="flex items-center space-x-4">
-            <div className="flex -space-x-4">
-              <img
-                src="https://images.unsplash.com/photo-1507537297725-24a1c029d3ca?w=100&h=100&fit=crop"
-                alt="Worker 1"
-                className="w-12 h-12 rounded-full border-2 border-white object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1516726817505-f5ed825624d8?w=100&h=100&fit=crop"
-                alt="Worker 2"
-                className="w-12 h-12 rounded-full border-2 border-white object-cover"
-              />
-              <img
-                src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?w=100&h=100&fit=crop"
-                alt="Worker 3"
-                className="w-12 h-12 rounded-full border-2 border-white object-cover"
-              />
+            <div className="p-3 bg-white/10 rounded-full">
+              <Users className="h-6 w-6" />
             </div>
             <div>
               <p className="text-sm text-brand-50">
                 Join 10,000+ workers who have found success through our platform
               </p>
               <div className="flex items-center mt-1">
-                <Users className="h-4 w-4 mr-2" />
-                <span className="font-medium">Active Community</span>
+                <div className="flex -space-x-1">
+                  {[...Array(3)].map((_, i) => (
+                    <div key={i} className="w-8 h-8 rounded-full bg-brand-500/20 border-2 border-white/20 flex items-center justify-center">
+                      <UserPlus className="h-4 w-4 text-white/60" />
+                    </div>
+                  ))}
+                </div>
+                <span className="ml-2 font-medium">Active Community</span>
               </div>
             </div>
           </div>
